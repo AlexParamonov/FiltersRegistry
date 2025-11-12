@@ -1,0 +1,16 @@
+{
+  "filterId": 2000,
+  "name": "AdGuard Base filter (eBlocker compatible)",
+  "description": "EasyList + AdGuard English filter converted for eBlocker compatibility. Unsupported modifiers removed.",
+  "timeAdded": 1731442800000,
+  "homepage": "https://github.com/AlexParamonov/FiltersRegistry",
+  "expires": "5 days",
+  "displayNumber": 1,
+  "groupId": 1,
+  "tags": [
+    "recommended",
+    "purpose:ads",
+    "eblocker-compatible"
+  ],
+  "trustLevel": "full"
+}
