@@ -7,30 +7,56 @@ This is a converted version of the AdGuard Base filter specifically for use with
 eBlocker uses EasyList syntax parser which doesn't support all AdGuard-specific modifiers. The following rules were removed:
 
 ### Stripped Modifiers (rules kept, modifier removed):
-- `$important` - Priority modifier (51 rules) - Kept as normal priority rules
-- `$all` - Blocks all request types (226 rules) - Kept as standard blocking rules
+**Priority & Matching:**
+- `$important` - Priority modifier - Kept as normal priority rules
+- `$all` - Blocks all request types - Kept as standard blocking rules
+- `$match-case` - Case-sensitive matching - eBlocker default is case-sensitive
+
+**Privacy Features (mostly whitelists):**
+- `$stealth` - AdGuard Stealth Mode features - ~1,470 rules (99% whitelists)
+- `$extension` - Browser extension specific - Whitelists work without it
+- `$urlblock` - URL blocking whitelist - Generic whitelist works
+- `$content` - Content type whitelist - Generic whitelist works
 
 ### Removed Modifiers (entire rules removed):
-**AdGuard-specific (not in EasyList spec):**
-- `$network` - IP address blocking (59 rules)
-- `$redirect-rule=` - AdGuard redirect rules (1 rule)
-- `$redirect=` - Resource redirection (118 rules)
-- `$denyallow=` - Complex whitelist syntax (0 rules)
+**Content/Response Modification:**
+- `$jsonprune=` - JSON response manipulation (25 rules)
+- `$xmlprune=` - XML/DASH manifest pruning (2 rules)
+- `$removeparam` - URL parameter removal (11 rules)
+- `$urltransform=` - URL rewriting (3 rules)
 - `$replace=` - Content replacement (386 rules)
-- `$to=` / `$from=` - URL rewriting (0 rules)
+
+**Header Modification:**
+- `$removeheader=` - HTTP header removal (3 rules)
+- `$referrerpolicy=` - Referrer-Policy header (4 rules)
+- `$cookie=` - Cookie filtering (21 rules)
+
+**Advanced Features:**
+- `$jsinject` - JavaScript injection (19 rules)
+- `$app=` - Application-specific rules (12 rules)
+- `$hls=` - HLS stream filtering (5 rules)
+- `$rpc/` - gRPC filtering (2 rules)
+
+**Filter Control:**
+- `$network` - IP address blocking (59 rules)
+- `$redirect=` - Resource redirection (118 rules)
+- `$redirect-rule=` - AdGuard redirect rules (1 rule)
+- `$denyallow=` - Complex whitelist syntax (0 rules)
 - `$badfilter` - Filter negation (24 rules)
+- `$to=` / `$from=` - URL rewriting (0 rules)
 
 ### Removed Syntax:
-- `*$...` - Wildcard rules that match everything
-- `#%#` / `#@%#` - JavaScript injection rules
-- `#$#` / `#@$#` - Advanced CSS injection
-- `#?#` - Extended CSS selectors
+- `*$...` - Wildcard rules that match everything (13 rules)
+- `#%#` / `#@%#` - JavaScript injection rules (~4,700 rules)
+- `#$#` / `#@$#` - Advanced CSS injection rules (~4,350 rules)
+- `#?#` - Extended CSS selectors (included in above)
+- `$$` - HTML filtering rules (238 rules)
 
 ## Statistics
 
 - **Original filter**: 154,379 lines (134,157 non-comment rules)
-- **eBlocker compatible**: 98,618 lines (79,718 non-comment rules)
-- **Removed**: 55,761 lines (54,439 non-comment rules / 40.6%)
+- **eBlocker compatible**: 98,207 lines (79,333 non-comment rules)
+- **Removed**: 56,172 lines (54,824 non-comment rules / 40.9%)
 
 ## What's Kept (Supported by eBlocker)?
 
