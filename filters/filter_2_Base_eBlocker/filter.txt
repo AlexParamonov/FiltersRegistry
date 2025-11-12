@@ -25973,7 +25973,6 @@ https://github.com/AdguardTeam/AdguardFilters/issues/51221
 errx01USAHTML/?bcda=$document
 &js_build=iclick-
 &js_build=iclick-
-&subAffId={SUBAFFID}^$script,subdocument,third-party
 &subAffId=tall^$script,subdocument,third-party
 /?rb=*&zoneid=$third-party
 &rb=*&zoneid=

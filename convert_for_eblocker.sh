@@ -62,6 +62,7 @@ grep -v '^\*\$' "$INPUT_FILE" | \
   grep -v '#@\$#' | \
   grep -v '#\?#' | \
   grep -v '\$\$' | \
+  grep -v -E '\{[A-Z_]+\}' | \
   sed 's/\$important,/$/g' | \
   sed 's/,\$important//g' | \
   sed 's/\$important\r\?$//g' | \
