@@ -55,8 +55,8 @@ eBlocker uses EasyList syntax parser which doesn't support all AdGuard-specific 
 ## Statistics
 
 - **Original filter**: 154,379 lines (134,157 non-comment rules)
-- **eBlocker compatible**: 98,207 lines (79,333 non-comment rules)
-- **Removed**: 56,172 lines (54,824 non-comment rules / 40.9%)
+- **eBlocker compatible**: 97,494 lines (78,622 non-comment rules)
+- **Removed**: 56,885 lines (55,535 non-comment rules / 41.4%)
 
 ## What's Kept (Supported by eBlocker)?
 

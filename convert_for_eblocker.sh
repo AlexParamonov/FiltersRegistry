@@ -24,10 +24,16 @@ echo "Output: $OUTPUT_FILE"
 grep -v '^\*\$' "$INPUT_FILE" | \
   grep -v '\$network' | \
   grep -v '\$redirect-rule=' | \
+  grep -v ',redirect-rule=' | \
+  grep -v '^\$.*redirect-rule=' | \
   grep -v '\$redirect=' | \
+  grep -v ',redirect=' | \
+  grep -v '^\$.*redirect=' | \
   grep -v '\$important,redirect=' | \
   grep -v '\$denyallow=' | \
   grep -v '\$replace=' | \
+  grep -v ',replace=' | \
+  grep -v '^\$.*replace=' | \
   grep -v '\$to=' | \
   grep -v '\$from=' | \
   grep -v '\$badfilter' | \
@@ -79,7 +85,9 @@ grep -v '^\*\$' "$INPUT_FILE" | \
   sed 's/\$content\r\?$//g' | \
   sed 's/\$match-case,/$/g' | \
   sed 's/,\$match-case//g' | \
-  sed 's/\$match-case\r\?$//g' > "$OUTPUT_FILE"
+  sed 's/\$match-case\r\?$//g' | \
+  grep -v -E '^\$[a-z]' | \
+  grep -v '^[[:space:]]*$' > "$OUTPUT_FILE"
 
 echo ""
 echo "Conversion complete!"
